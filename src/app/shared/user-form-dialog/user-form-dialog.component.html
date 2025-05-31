@@ -1,0 +1,59 @@
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>    
+    <h5 mat-dialog-title>{{ data.user?.id ? 'Edit User' : 'Add User' }}</h5>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="fname" required />
+      <mat-error *ngIf="userForm.get('fname')?.hasError('required')">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lname" required />
+      <mat-error *ngIf="userForm.get('lname')?.hasError('required')">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>User Name</mat-label>
+      <input matInput formControlName="username" required />
+      <mat-error *ngIf="userForm.get('username')?.hasError('required')">
+        User Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+      <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+        Please enter a valid email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" required />
+      <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Avatar</mat-label>
+      <input matInput formControlName="avatar" required />
+      <mat-error *ngIf="userForm.get('avatar')?.hasError('required')">
+        Avatar is required
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()" class="btn btn-danger">Cancel</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="userForm.invalid" class="btn btn primary">
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

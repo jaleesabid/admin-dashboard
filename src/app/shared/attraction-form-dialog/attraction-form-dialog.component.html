@@ -1,0 +1,49 @@
+
+
+<form [formGroup]="attractionForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>    
+    <h5 mat-dialog-title>{{ data.attraction?.id ? 'Edit Attraction' : 'Add Attraction' }}</h5>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="attractionForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Detail</mat-label>
+      <input matInput formControlName="detail" required />
+      <mat-error *ngIf="attractionForm.get('detail')?.hasError('required')">
+        Detail is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cover Image</mat-label>
+      <input matInput formControlName="coverimage" required />
+      <mat-error *ngIf="attractionForm.get('coverimage')?.hasError('required')">
+        Cover Image is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Latitude</mat-label>
+      <input matInput formControlName="latitude" type="number" required />
+      <mat-error *ngIf="attractionForm.get('latitude')?.hasError('required')">
+        Latitude is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Longitude</mat-label>
+      <input matInput formControlName="longitude" type="number" required />
+      <mat-error *ngIf="attractionForm.get('longitude')?.hasError('required')">
+        Longitude is required
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()" class="btn btn-danger">Cancel</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="attractionForm.invalid" class="btn btn primary">
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

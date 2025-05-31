@@ -1,0 +1,9 @@
+::ng-deep .mat-column-actions,
+.actions-column {
+  display: flex;
+  justify-content: end;
+}
+
+.mat-column-avatar {
+  padding: 8px 0;
+}
