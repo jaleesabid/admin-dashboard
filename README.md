@@ -135,7 +135,9 @@ src/
 - Dates passed to the Pet Sales APIs follow the `YYYY-MM-DD` format.
 - The API responses and endpoints follow the documented structure consistently throughout the application lifecycle.
 
-**Your Name**  
+## Author
+
+**Jalees Ul Hassan**  
 Email: jaleeshassan09@gmail.com  
 GitHub: [github.com/jaleesabid](https://github.com/jaleesabid)
 
