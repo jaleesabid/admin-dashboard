@@ -129,6 +129,16 @@ src/
 
 ---
 
+## Assumptions
+
+- Authentication token (JWT) is stored securely in `sessionStorage` and included in HTTP headers as `Authorization: Bearer <token>`.
+- Dates passed to the Pet Sales APIs follow the `YYYY-MM-DD` format.
+- The API responses and endpoints follow the documented structure consistently throughout the application lifecycle.
+
+**Your Name**  
+Email: jaleeshassan09@gmail.com  
+GitHub: [github.com/jaleesabid](https://github.com/jaleesabid)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
