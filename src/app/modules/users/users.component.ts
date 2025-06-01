@@ -1,7 +1,5 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Component, inject, ViewChild } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,22 +9,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { UserService, User, apiUser } from '../../core/services/user.service';
+import { UserService } from '../../core/services/user.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  BehaviorSubject,
-  debounceTime,
-  distinctUntilChanged,
-  Subject,
-} from 'rxjs';
+import { BehaviorSubject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { UserFormDialogComponent } from '../../shared/user-form-dialog/user-form-dialog.component';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoaderService } from '../../core/services/loader.service';
+import { apiUser } from '../../core/models/users.model';
 
 @Component({
   selector: 'app-users',
@@ -50,7 +44,7 @@ export class UsersComponent {
   private _snackBar = inject(MatSnackBar);
 
   displayedColumns = ['id', 'avatar', 'name', 'email', 'actions'];
-  dataSource = new MatTableDataSource<User>([]);
+  dataSource = new MatTableDataSource<apiUser>([]);
   totalUsers = 0;
   pageSize = 10;
   pageIndex = 0;
@@ -72,7 +66,7 @@ export class UsersComponent {
 
   ngOnInit() {
     this.searchControl.valueChanges.subscribe((searchTerm) => {
-      this.onSearchChange(searchTerm); // Your method that handles search
+      this.onSearchChange(searchTerm);
     });
 
     this.loadUsers();
@@ -138,7 +132,7 @@ export class UsersComponent {
     });
   }
 
-  openEditDialog(user: User) {
+  openEditDialog(user: apiUser) {
     const dialogRef = this.dialog.open(UserFormDialogComponent, {
       width: '400px',
       data: { user },

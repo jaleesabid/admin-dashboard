@@ -6,20 +6,12 @@ import {
   MatDialogContent,
   MatDialogRef,
 } from '@angular/material/dialog';
-import {
-  MatError,
-  MatFormField,
-  MatFormFieldControl,
-  MatLabel,
-} from '@angular/material/form-field';
-import { User, apiUser } from '../../core/services/user.service';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
-import {
-  Attractions,
-  AttractionService,
-} from '../../core/services/attractions.service';
+import { AttractionService } from '../../core/services/attractions.service';
+import { Attractions } from '../../core/models/attractions.model';
 
 @Component({
   selector: 'app-user-form-dialog',
@@ -69,8 +61,6 @@ export class AttractionFormDialogComponent {
 
     if (userData.id) {
       this.attractionService.updateAttraction(userData).subscribe((res) => {
-        debugger;
-        // this._snackBar.open(result.message, 'Close');
         this.dialogRef.close(res);
       });
     } else {

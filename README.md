@@ -1,6 +1,7 @@
 # AdminDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+An **Admin Dashboard** built with **Angular 18** that allows an administrator to manage **Users**, **Attractions**, and view **Pet Sales Statistics**. The application features full CRUD operations, search, pagination, and sales data visualization, integrating with the [melivecode.com](https://www.melivecode.com/) public API.
 
 ## Development server
 

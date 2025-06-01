@@ -22,13 +22,11 @@ export const routes: Routes = [
           import('./modules/attractions/attractions.component').then(
             (m) => m.AttractionsComponent
           ),
-        // canActivate: [AuthGuard],
       },
       {
         path: 'pet-sales',
         loadComponent: () =>
           import('./modules/pets/pets.component').then((m) => m.PetsComponent),
-        // canActivate: [AuthGuard],
       },
     ],
   },
@@ -36,7 +34,6 @@ export const routes: Routes = [
     path: 'login',
     loadComponent: () =>
       import('./modules/login/login.component').then((m) => m.LoginComponent),
-    // canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: 'login' },
 ];

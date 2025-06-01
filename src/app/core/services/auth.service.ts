@@ -20,7 +20,7 @@ export class AuthService {
       .pipe(
         tap((response) => {
           const token = response.accessToken;
-          const expiresIn = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+          const expiresIn = 12 * 60 * 60 * 1000;
           const expiryTime = new Date().getTime() + expiresIn;
 
           sessionStorage.setItem(this.tokenKey, token);
@@ -34,7 +34,7 @@ export class AuthService {
     if (expiry && +expiry > new Date().getTime()) {
       return sessionStorage.getItem(this.tokenKey);
     } else {
-      this.logout(); // Expired
+      this.logout();
       return null;
     }
   }

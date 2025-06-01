@@ -6,16 +6,12 @@ import {
   MatDialogContent,
   MatDialogRef,
 } from '@angular/material/dialog';
-import {
-  MatError,
-  MatFormField,
-  MatFormFieldControl,
-  MatLabel,
-} from '@angular/material/form-field';
-import { UserService, User, apiUser } from '../../core/services/user.service';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
+import { UserService } from '../../core/services/user.service';
 import { MatInput } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
+import { apiUser } from '../../core/models/users.model';
 
 @Component({
   selector: 'app-user-form-dialog',
@@ -49,7 +45,7 @@ export class UserFormDialogComponent {
     private fb: FormBuilder,
     private userService: UserService,
     private dialogRef: MatDialogRef<UserFormDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { user: User | null }
+    @Inject(MAT_DIALOG_DATA) public data: { user: apiUser | null }
   ) {}
 
   ngOnInit() {

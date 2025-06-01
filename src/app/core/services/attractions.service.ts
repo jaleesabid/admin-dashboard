@@ -3,15 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment';
 import { AuthService } from './auth.service';
-
-export interface Attractions {
-  id: number;
-  name: string;
-  detail: string;
-  coverimage: string;
-  latitude: number;
-  longitude: number;
-}
+import { Attractions } from '../models/attractions.model';
 
 @Injectable({ providedIn: 'root' })
 export class AttractionService {
@@ -46,7 +38,7 @@ export class AttractionService {
     return this.http.post(`${this.authApiUrl}/create`, attraction, { headers });
   }
 
-  updateAttraction(attraction: Partial<Attractions>) {
+  updateAttraction(attraction: Attractions) {
     const token = this.auth.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 

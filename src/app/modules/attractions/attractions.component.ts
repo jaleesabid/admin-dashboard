@@ -1,7 +1,6 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, ViewChild } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,28 +10,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { UserService, User, apiUser } from '../../core/services/user.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  BehaviorSubject,
-  debounceTime,
-  distinctUntilChanged,
-  Subject,
-} from 'rxjs';
+import { BehaviorSubject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import { UserFormDialogComponent } from '../../shared/user-form-dialog/user-form-dialog.component';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoaderService } from '../../core/services/loader.service';
-import {
-  AttractionService,
-  Attractions,
-} from '../../core/services/attractions.service';
+import { AttractionService } from '../../core/services/attractions.service';
 import { AttractionFormDialogComponent } from '../../shared/attraction-form-dialog/attraction-form-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Attractions } from '../../core/models/attractions.model';
 
 @Component({
   selector: 'app-attractions',
@@ -80,7 +70,7 @@ export class AttractionsComponent {
 
   ngOnInit() {
     this.searchControl.valueChanges.subscribe((searchTerm) => {
-      this.onSearchChange(searchTerm); // Your method that handles search
+      this.onSearchChange(searchTerm);
     });
 
     this.loadAttractions();
@@ -111,7 +101,6 @@ export class AttractionsComponent {
         },
         error: () => {
           this.loaderService.hide();
-          // handle error
         },
       });
   }
