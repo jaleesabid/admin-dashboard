@@ -4,11 +4,12 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { PetsService } from './pets.service';
+import { environment } from '../../../environments/environment';
 
 describe('PetsService', () => {
   let service: PetsService;
   let httpMock: HttpTestingController;
-  const baseUrl = 'https://www.melivecode.com/api/pets';
+  const baseUrl = `${environment.baseUrl}/api/pets`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

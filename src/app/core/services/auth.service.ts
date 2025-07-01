@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private loginUrl = 'https://www.melivecode.com/api/login';
+  private loginUrl = `${environment.baseUrl}/api/login`;
   private tokenKey = 'accessToken';
   private expiryKey = 'tokenExpiry';
 
