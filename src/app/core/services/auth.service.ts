@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private loginUrl = `${environment.baseUrl}/api/login`;
+  private loginUrl = `${environment.baseUrl}/login`;
   private tokenKey = 'accessToken';
   private expiryKey = 'tokenExpiry';
 

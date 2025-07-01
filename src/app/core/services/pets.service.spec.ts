@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 describe('PetsService', () => {
   let service: PetsService;
   let httpMock: HttpTestingController;
-  const baseUrl = `${environment.baseUrl}/api/pets`;
+  const baseUrl = `${environment.baseUrl}/pets`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
