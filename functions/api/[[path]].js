@@ -1,5 +1,5 @@
 // Set MELIVECODE_BASE as a Pages env variable (Settings → Functions → Env vars)
-const MELIVECODE = MELIVECODE_BASE || 'https://melivecode.com/api';
+const MELIVECODE = 'https://melivecode.com/api';
 
 export async function onRequest(context) {
   const { request, params } = context;
